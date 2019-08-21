@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &147006192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -291.7, y: 62.8}
+  m_AnchoredPosition: {x: -291.7, y: 62.80005}
   m_SizeDelta: {x: 583.4, y: 124.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147006193
@@ -452,6 +452,7 @@ GameObject:
   - component: {fileID: 452670229}
   - component: {fileID: 452670228}
   - component: {fileID: 452670227}
+  - component: {fileID: 452670231}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -553,12 +554,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452670226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.78, y: 9.9, z: 0}
+  m_LocalPosition: {x: 8.765, y: 2.234, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &452670231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452670226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac21f4f9ea44da94f9572e69e2c17f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle1: {fileID: 2033832075}
 --- !u!1 &810089791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,7 +1138,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009313326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -1165,6 +1179,7 @@ GameObject:
   - component: {fileID: 2033832073}
   - component: {fileID: 2033832072}
   - component: {fileID: 2033832074}
+  - component: {fileID: 2033832075}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -1269,3 +1284,18 @@ PolygonCollider2D:
       - {x: 0.99999905, y: 0.048617244}
       - {x: 0.9936743, y: 0.045844555}
       - {x: 0.8287058, y: 0.118929744}
+--- !u!114 &2033832075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033832071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212fa44b3c1dcd3479c4e6eac69402bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreenWidthUnits: 16
+  xMin: 1
+  xMax: 15
