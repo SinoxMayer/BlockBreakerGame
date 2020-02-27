@@ -5,16 +5,16 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] AudioClip[] blockSounds;
-
+    Level level;
 
     //AudioSource blockSound;
     //AudioSource blockSound2;
    
 
-    void Start()
+    private void Start()
     {
         //blockSound = GetComponent<AudioSource>();
-     
+        level = FindObjectOfType<Level>();
     }
 
     private void Update()
