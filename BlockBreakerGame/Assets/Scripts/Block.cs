@@ -15,6 +15,8 @@ public class Block : MonoBehaviour
     {
         //blockSound = GetComponent<AudioSource>();
         level = FindObjectOfType<Level>();
+        level.CountBreakableBlocks();
+
     }
 
     private void Update()
@@ -24,11 +26,14 @@ public class Block : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //AudioClip clip = blockSounds[Random.Range(0, blockSounds.Length)];
-        
-        AudioSource.PlayClipAtPoint(blockSounds[Random.Range(0, blockSounds.Length)], Camera.main.transform.position);
-        Destroy(gameObject);
 
+        DestroyBlock();
     }
 
-
+    private void DestroyBlock()
+    {
+        AudioSource.PlayClipAtPoint(blockSounds[Random.Range(0, blockSounds.Length)], Camera.main.transform.position);
+        Destroy(gameObject);
+        level.BlockDestroyed();
+    }
 }
