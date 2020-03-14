@@ -8,6 +8,9 @@ public class GameStatus : MonoBehaviour
 
 
     [Range(0.5f,5f)] [SerializeField] float gameSpeed = 1f;
+    [SerializeField] int pointsPerBlock = 83 ;
+    [SerializeField] int currentScore = 0;
+
 
 
 
@@ -24,6 +27,14 @@ public class GameStatus : MonoBehaviour
         // update için yazıyorum çünkü canlı statüs cekicem frame frame bilicez
 
         Time.timeScale = gameSpeed;
+
+
+    }
+    public void AddToScore()
+
+    {
+
+        currentScore += pointsPerBlock;
 
 
     }

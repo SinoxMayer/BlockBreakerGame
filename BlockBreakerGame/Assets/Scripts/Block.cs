@@ -6,6 +6,7 @@ public class Block : MonoBehaviour
 {
     [SerializeField] AudioClip[] blockSounds;
     Level level;
+    
 
     //AudioSource blockSound;
     //AudioSource blockSound2;
@@ -16,6 +17,7 @@ public class Block : MonoBehaviour
         //blockSound = GetComponent<AudioSource>();
         level = FindObjectOfType<Level>();
         level.CountBreakableBlocks();
+        
 
     }
 
@@ -28,12 +30,17 @@ public class Block : MonoBehaviour
         //AudioClip clip = blockSounds[Random.Range(0, blockSounds.Length)];
 
         DestroyBlock();
+        
     }
 
     private void DestroyBlock()
     {
+
+        FindObjectOfType<GameStatus>().AddToScore();
+
         AudioSource.PlayClipAtPoint(blockSounds[Random.Range(0, blockSounds.Length)], Camera.main.transform.position);
         Destroy(gameObject);
         level.BlockDestroyed();
+        
     }
 }
