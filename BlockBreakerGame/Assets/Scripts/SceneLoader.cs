@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class SceneLoader : MonoBehaviour
 {
+
     public void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -14,8 +16,10 @@ public class SceneLoader : MonoBehaviour
     public void LoadStartScene()
     {
 
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+      
+    
         SceneManager.LoadScene(0);
+        FindObjectOfType<GameSession>().ResetScoreOnStart();
     }
 
 
