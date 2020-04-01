@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    //config params
     [SerializeField] AudioClip[] blockSounds;
+    [SerializeField] GameObject blockSparklesVFX;
+
+
+    //cached reference
     Level level;
     
 
@@ -14,11 +19,18 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
+        CountBreakableBlocks();
+
+    }
+
+    private void CountBreakableBlocks()
+    {
         //blockSound = GetComponent<AudioSource>();
         level = FindObjectOfType<Level>();
-        level.CountBreakableBlocks();
-        
-
+        if (tag == "Breakable")
+        {
+            level.CountBlocks();
+        }
     }
 
     private void Update()
@@ -28,19 +40,34 @@ public class Block : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //AudioClip clip = blockSounds[Random.Range(0, blockSounds.Length)];
-
-        DestroyBlock();
+       if (tag == "Breakable")
+        {
+            DestroyBlock();
+        }
+    
         
     }
 
     private void DestroyBlock()
     {
+        BlockDestroySFX();
+        Destroy(gameObject);
+        level.BlockDestroyed();
+        TrigerBlockSparksVFX();
 
+    }
+
+    private void BlockDestroySFX()
+    {
         FindObjectOfType<GameSession>().AddToScore();
 
         AudioSource.PlayClipAtPoint(blockSounds[Random.Range(0, blockSounds.Length)], Camera.main.transform.position);
-        Destroy(gameObject);
-        level.BlockDestroyed();
-        
+    }
+
+    private void TrigerBlockSparksVFX()
+    {
+        GameObject sparkelts = Instantiate(blockSparklesVFX, transform.position, transform.rotation);
+        Destroy(sparkelts, 1f);
+        // burada yaptığım oluşan paçacık efeklerini 1 frame sonra yok et demek oldu . Bu sayede çok fazla spawn olan bir oyun olursa şişme yapmıyacak . 
     }
 }
